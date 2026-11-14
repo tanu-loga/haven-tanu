@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://7nvr2qrr1job"]
+
+[ext_resource type="Texture2D" uid="uid://n3knre1trp" path="res://asse/tileset/oubliette_tileset_transparent.png" id="1_ba0x2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2dex"]
+size = Vector2(16, 4)
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=437164526]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1265943868]
+texture_filter = 1
+texture = ExtResource("1_ba0x2")
+region_enabled = true
+region_rect = Rect2(94.481476, 46.77778, 18.666672, 5.333332)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1422227064]
+shape = SubResource("RectangleShape2D_w2dex")
+one_way_collision = true
