@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -280.0
-
+var random_slide = randi_range(-20, 20)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -20,6 +20,6 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, SPEED) + randi_range(-40, 40)
 
 	move_and_slide()
