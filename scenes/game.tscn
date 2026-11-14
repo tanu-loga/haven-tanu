@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b64jvnlmsikrd" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://n3knre1trp" path="res://asse/tileset/oubliette_tileset_transparent.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://7nvr2qrr1job" path="res://scenes/platform.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bdqlwgqkd8l0b" path="res://scenes/torch.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -204,3 +205,7 @@ offset_right = 761.0
 offset_bottom = 289.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[node name="AnimatableBody2D4" parent="." unique_id=620121589 instance=ExtResource("4_lbhrr")]
+visible = false
+position = Vector2(76, 35)

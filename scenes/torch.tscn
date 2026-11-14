@@ -41,10 +41,33 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_1l4js"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_r3k50"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dgdk7"]
+gradient = SubResource("Gradient_r3k50")
+fill_from = Vector2(0.9724771, 0.8669725)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1l4js"]
+
 [node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=620121589]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=159789659]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_1l4js")
 autoplay = "default"
-frame_progress = 0.012843993
+frame_progress = 0.18377137
+
+[node name="Polygon2D" type="Polygon2D" parent="AnimatedSprite2D" unique_id=24183912]
+material = SubResource("CanvasItemMaterial_1l4js")
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(1.2916666, 1.3076923)
+texture = SubResource("GradientTexture2D_dgdk7")
+polygon = PackedVector2Array(0, -16, 10, -11, 12, 0, 9, 8, 1, 10, -10, 8, -12, 0, -12, -12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1413817981]
+shape = SubResource("RectangleShape2D_1l4js")
+disabled = true
