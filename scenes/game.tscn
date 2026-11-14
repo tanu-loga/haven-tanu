@@ -4,6 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://n3knre1trp" path="res://asse/tileset/oubliette_tileset_transparent.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://7nvr2qrr1job" path="res://scenes/platform.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bdqlwgqkd8l0b" path="res://scenes/torch.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://c7vpb586ry25s" path="res://scenes/coin.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://wqoml1r81ra8" path="res://scenes/killzone.tscn" id="6_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -91,7 +93,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("platform1:position")
+tracks/0/path = NodePath("platforms_moving/platform1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -103,7 +105,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("platform2:position")
+tracks/1/path = NodePath("platforms_moving/platform2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -119,7 +121,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("platform1:position")
+tracks/0/path = NodePath("platforms_moving/platform1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -131,7 +133,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("platform2:position")
+tracks/1/path = NodePath("platforms_moving/platform2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -147,6 +149,9 @@ _data = {
 &"move": SubResource("Animation_lbhrr")
 }
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1thd6"]
+distance = -162.0
+
 [node name="Game" type="Node2D" unique_id=1974500762]
 
 [node name="Player" parent="." unique_id=1871107540 instance=ExtResource("1_uwrxv")]
@@ -155,6 +160,7 @@ position = Vector2(38, 29)
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1839454953]
 position = Vector2(-2, -6)
 zoom = Vector2(4, 4)
+limit_bottom = 180
 position_smoothing_enabled = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2028939090]
@@ -163,37 +169,42 @@ position = Vector2(0, -15)
 tile_map_data = PackedByteArray("AAABAAIAAAAAAAAAAAACAAIAAAABAAAAAAABAAMAAAAAAAEAAAABAAQAAAAHAAcAAAAAAAQAAAAAAAAAAAACAAMAAAABAAEAAAACAAQAAAAHAAcAAAACAAUAAAAHAAcAAAABAAUAAAABAAEAAAAAAAUAAAAAAAEAAAACAAYAAAABAAIAAAABAAYAAAABAAIAAAADAAIAAAACAAAAAAADAAMAAAACAAEAAAADAAQAAAAHAAcAAAADAAUAAAABAAEAAAADAAYAAAABAAIAAAAAAAYAAAAAAAIAAAAEAAQAAAACAAAAAAAEAAUAAAACAAEAAAAEAAYAAAACAAIAAAABAAEAAAAFAAIAAAACAAEAAAAGAAIAAAADAAEAAAAHAAIAAAD+/wQAAAABAAEAAAD0////AAAAAAAAAAD1////AAABAAAAAAD2////AAACAAAAAAD2/wAAAAACAAIAAAD0/wAAAAAAAAIAAAD1/wAAAAABAAIAAAAFAPz/AAACAAIAADAGAPz/AAABAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAMAAAAHAP3/AAACAAAAAAAKAP3/AAACAAIAADALAP3/AAABAAIAADAMAP3/AAABAAAAAAANAP3/AAABAAAAAAAOAP3/AAABAAAAAAARAP3/AAABAAAAAAASAP3/AAABAAIAADATAP3/AAAAAAIAADATAP7/AAAAAAMAAAAFAPr/AAAFAAEAAAAFAPv/AAAAAAAAAAAGAPr/AAAGAAEAAAAGAPv/AAACAAAAAAAHAPv/AAAFAAEAAAAHAPz/AAABAAAAAAAIAPv/AAAGAAEAAAAIAPz/AAABAAAAAAAJAPv/AAAHAAEAAAAJAPz/AAABAAAAAAAKAPv/AAAFAAEAAAAKAPz/AAAAAAIAADALAPv/AAAGAAEAAAALAPz/AAABAAAAAAAMAPv/AAAFAAEAAAAMAPz/AAABAAAAAAANAPv/AAAGAAEAAAANAPz/AAABAAIAADAOAPv/AAAHAAEAAAAOAPz/AAAAAAIAADAPAP3/AAABAAAAAAAQAP3/AAABAAAAAAARAPv/AAAFAAEAAAARAPz/AAAAAAAAAAASAPv/AAAGAAEAAAASAPz/AAABAAAAAAATAPv/AAAHAAEAAAATAPz/AAACAAAAAAAGAP//AAAAAAMAAAATAP//AAAAAAMAAAD3/wQAAAAEAAAAAAD6/wQAAAAEAAAAAFD5/wQAAAAEAAAAAFD4/wQAAAAEAAAAAAAOAAQAAAADAAAAAAAOAAUAAAADAAAAAAAOAAYAAAADAAAAAAAXAAQAAAADAAAAAAAXAAUAAAADAAAAAAAXAAYAAAADAAAAAAAYAAQAAAABAAMAAAAZAAQAAAABAAMAAAAaAAQAAAABAAMAAAAbAAQAAAABAAMAAAAcAAQAAAABAAMAAAAfAP//AAABAAMAAAAgAP//AAABAAMAAAAhAP//AAABAAMAAAAiAP//AAABAAMAAAAjAP//AAABAAMAAAA=")
 tile_set = SubResource("TileSet_w2dex")
 
-[node name="AnimatableBody2D" parent="." unique_id=437164526 instance=ExtResource("3_lnu2h")]
+[node name="platforms_still" type="Node" parent="." unique_id=749063044]
+
+[node name="AnimatableBody2D" parent="platforms_still" unique_id=437164526 instance=ExtResource("3_lnu2h")]
 position = Vector2(257, 32)
-rotation = -4.712389
+rotation = 1.5707964
 scale = Vector2(2, 2)
 
-[node name="AnimatableBody2D3" parent="." unique_id=1104271559 instance=ExtResource("3_lnu2h")]
+[node name="AnimatableBody2D3" parent="platforms_still" unique_id=1104271559 instance=ExtResource("3_lnu2h")]
 position = Vector2(40, -21)
 scale = Vector2(2, 2)
 
-[node name="AnimatableBody2D2" parent="." unique_id=850143566 instance=ExtResource("3_lnu2h")]
+[node name="AnimatableBody2D2" parent="platforms_still" unique_id=850143566 instance=ExtResource("3_lnu2h")]
 position = Vector2(-115, 14)
-rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="platform1" parent="." unique_id=1691854101 instance=ExtResource("3_lnu2h")]
+[node name="AnimatableBody2D4" parent="platforms_still" unique_id=620121589 instance=ExtResource("4_lbhrr")]
+visible = false
+position = Vector2(76, 35)
+
+[node name="platforms_moving" type="Node" parent="." unique_id=1487411803]
+
+[node name="platform1" parent="platforms_moving" unique_id=1691854101 instance=ExtResource("3_lnu2h")]
 position = Vector2(98, 55)
-rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platform1" unique_id=1643398064]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform1" unique_id=1643398064]
+root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_iywne")
 autoplay = &"move"
 
-[node name="platform2" parent="." unique_id=224116592 instance=ExtResource("3_lnu2h")]
+[node name="platform2" parent="platforms_moving" unique_id=224116592 instance=ExtResource("3_lnu2h")]
 position = Vector2(259, 55)
-rotation = -6.2831855
 scale = Vector2(2, 2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platform2" unique_id=1016534251]
-root_node = NodePath("../..")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform2" unique_id=1016534251]
+root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_iywne")
 autoplay = &"move"
 
@@ -206,6 +217,12 @@ offset_bottom = 289.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
 
-[node name="AnimatableBody2D4" parent="." unique_id=620121589 instance=ExtResource("4_lbhrr")]
-visible = false
-position = Vector2(76, 35)
+[node name="Area2D" parent="." unique_id=1488491317 instance=ExtResource("5_iywne")]
+texture_filter = 1
+position = Vector2(-24, 43)
+scale = Vector2(0.5, 0.5)
+
+[node name="Killzone" parent="." unique_id=888199142 instance=ExtResource("6_u5sy4")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=424799972]
+shape = SubResource("WorldBoundaryShape2D_1thd6")
