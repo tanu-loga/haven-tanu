@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bdqlwgqkd8l0b"]
+
+[ext_resource type="Texture2D" uid="uid://c2gbb5rnd2kjt" path="res://asse/items/torchC1.png" id="1_r3k50"]
+[ext_resource type="Texture2D" uid="uid://lgat0nakb1fo" path="res://asse/items/torchC2.png" id="2_ndh0a"]
+[ext_resource type="Texture2D" uid="uid://yyhjoghqvbvt" path="res://asse/items/torchC3.png" id="3_ktql7"]
+[ext_resource type="Texture2D" uid="uid://yqbmmffgrlob" path="res://asse/items/torchC4.png" id="4_gybtl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21l5o"]
+atlas = ExtResource("1_r3k50")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wjrvc"]
+atlas = ExtResource("2_ndh0a")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bkw1"]
+atlas = ExtResource("3_ktql7")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etrdt"]
+atlas = ExtResource("4_gybtl")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1l4js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21l5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wjrvc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bkw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etrdt")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="AnimatableBody2D" type="AnimatableBody2D" unique_id=620121589]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=159789659]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_1l4js")
+autoplay = "default"
+frame_progress = 0.012843993
