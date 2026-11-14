@@ -2,6 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://n3knre1trp" path="res://asse/tileset/oubliette_tileset_transparent.png" id="1_ba0x2"]
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_nlgqw"]
+blend_mode = 1
+
+[sub_resource type="Gradient" id="Gradient_ba0x2"]
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_eo0xc"]
+gradient = SubResource("Gradient_ba0x2")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w2dex"]
 size = Vector2(16, 4)
 
@@ -12,6 +23,14 @@ texture_filter = 1
 texture = ExtResource("1_ba0x2")
 region_enabled = true
 region_rect = Rect2(94.481476, 46.77778, 18.666672, 5.333332)
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite2D" unique_id=345816227]
+material = SubResource("CanvasItemMaterial_nlgqw")
+position = Vector2(0, 0.92592597)
+scale = Vector2(1, 0.962963)
+texture = SubResource("GradientTexture2D_eo0xc")
+polygon = PackedVector2Array(-8, -3.0384617, -11, 11.5, 12, 11.5, 8, -3.0384617)
+uv = PackedVector2Array(0, 1, -16, 25, 17, 25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1422227064]
 shape = SubResource("RectangleShape2D_w2dex")

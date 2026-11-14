@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://dadboaojjy0qr"]
 
-[ext_resource type="PackedScene" uid="uid://b64jvnlmsikrd" path="res://scenes/Player.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://b64jvnlmsikrd" path="res://scenes/player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://n3knre1trp" path="res://asse/tileset/oubliette_tileset_transparent.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://7nvr2qrr1job" path="res://scenes/platform.tscn" id="3_lnu2h"]
 
@@ -168,7 +168,7 @@ rotation = -4.712389
 scale = Vector2(2, 2)
 
 [node name="AnimatableBody2D3" parent="." unique_id=1104271559 instance=ExtResource("3_lnu2h")]
-position = Vector2(40, -28)
+position = Vector2(40, -21)
 scale = Vector2(2, 2)
 
 [node name="AnimatableBody2D2" parent="." unique_id=850143566 instance=ExtResource("3_lnu2h")]
