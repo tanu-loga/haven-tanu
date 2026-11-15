@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://b5uqh7yxi5srk"]
+
+[ext_resource type="Texture2D" uid="uid://n3knre1trp" path="res://asse/tileset/oubliette_tileset_transparent.png" id="1_7a7y0"]
+[ext_resource type="PackedScene" uid="uid://wqoml1r81ra8" path="res://scenes/killzone.tscn" id="2_d2mqm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cx2lw"]
+atlas = ExtResource("1_7a7y0")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2dex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cx2lw")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xooo7"]
+size = Vector2(11, 9)
+
+[node name="spike" type="Node2D" unique_id=868289590]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=530335608]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w2dex")
+
+[node name="Killzone" parent="." unique_id=888199142 instance=ExtResource("2_d2mqm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=1565034269]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_xooo7")

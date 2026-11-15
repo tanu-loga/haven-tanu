@@ -14,13 +14,15 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
+		var y_delta = position.y - body.position.y
 		print("gonna bounce")
-		if body.global_position.y < global_position.y:
+		print(y_delta)
+		if (y_delta > 36):
 			print("b")
-			body.bounce(-800)
 			animated_sprite_2d.play("launch")
+			body.bounce(-400)
 		else:
-			print("nah")
+			body.bounce(-300)
 	else:
 		print("not foundd")
 func _on_body_exited(body: Node2D) -> void:
