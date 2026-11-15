@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://b5n2t7icwgylc"]
+
+[ext_resource type="Script" uid="uid://d1t7y2jkoxcue" path="res://scripts/door.gd" id="1_uvdjg"]
+[ext_resource type="Texture2D" uid="uid://n3knre1trp" path="res://asse/tileset/oubliette_tileset_transparent.png" id="2_83dcw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_la1wf"]
+atlas = ExtResource("2_83dcw")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w2dex"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_la1wf")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w2dex"]
+size = Vector2(11, 15)
+
+[node name="Area2D" type="Area2D" unique_id=1529346263]
+script = ExtResource("1_uvdjg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=46889272]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w2dex")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376394751]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_w2dex")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
