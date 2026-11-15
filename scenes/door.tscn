@@ -7,6 +7,10 @@
 atlas = ExtResource("2_83dcw")
 region = Rect2(32, 48, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_uvdjg"]
+atlas = ExtResource("2_83dcw")
+region = Rect2(48, 48, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_w2dex"]
 animations = [{
 "frames": [{
@@ -15,6 +19,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uvdjg")
+}],
+"loop": 1,
+"name": &"open",
 "speed": 5.0
 }]
 
@@ -27,6 +39,7 @@ script = ExtResource("1_uvdjg")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=46889272]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_w2dex")
+animation = &"open"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1376394751]
 position = Vector2(0.5, 0.5)
