@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://ceyw256qkiimj" path="res://scenes/enemy.tscn" id="8_gee14"]
 [ext_resource type="FontFile" uid="uid://co4fkvj2856d" path="res://asse/Yolk 6.ttf" id="10_vtaks"]
 [ext_resource type="PackedScene" uid="uid://b5uqh7yxi5srk" path="res://scenes/spike.tscn" id="12_dinhu"]
+[ext_resource type="AudioStream" uid="uid://suuxgt7u0ld0" path="res://asse/dark-happy-world.ogg" id="13_kvuet"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
 texture = ExtResource("2_yqjtg")
@@ -120,6 +121,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(259, 55)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("platforms_moving/platform3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(569, -68)]
+}
 
 [sub_resource type="Animation" id="Animation_lbhrr"]
 resource_name = "move"
@@ -148,6 +161,18 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector2(259, 55), Vector2(350, 55)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("platforms_moving/platform3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(569, -68), Vector2(569, -148)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_iywne"]
 _data = {
@@ -172,10 +197,11 @@ offset_right = 10.0
 offset_bottom = -47.0
 theme_override_fonts/font = ExtResource("10_vtaks")
 theme_override_font_sizes/font_size = 17
-text = "Need X more coins to unlock exit"
+text = "Need more coins to unlock exit"
 
 [node name="door" parent="." unique_id=1529346263 instance=ExtResource("7_u5sy4")]
 position = Vector2(-172, -42)
+collision_mask = 2
 
 [node name="win_screen" type="ColorRect" parent="door" unique_id=67514424]
 visible = false
@@ -189,19 +215,31 @@ color = Color(0, 0, 0, 1)
 [node name="door_label" type="Label" parent="door" unique_id=578415042]
 visible = false
 z_index = 3
-offset_left = 76.0
-offset_top = 2.0
-offset_right = 370.0
-offset_bottom = 78.0
+offset_left = -150.0
+offset_top = -28.0
+offset_right = 144.0
+offset_bottom = 48.0
 theme_override_fonts/font = ExtResource("10_vtaks")
-theme_override_font_sizes/font_size = 100
+theme_override_font_sizes/font_size = 96
 text = "You won..."
 
 [node name="trampoline" parent="door" unique_id=820959931 instance=ExtResource("4_kvpfn")]
 position = Vector2(33, 82)
 
+[node name="trampoline2" parent="door" unique_id=962286442 instance=ExtResource("4_kvpfn")]
+position = Vector2(404, 81)
+
+[node name="trampoline3" parent="door" unique_id=38674851 instance=ExtResource("4_kvpfn")]
+position = Vector2(611, 84)
+
+[node name="trampoline4" parent="door" unique_id=484598623 instance=ExtResource("4_kvpfn")]
+position = Vector2(740, 4)
+
+[node name="trampoline5" parent="door" unique_id=872545777 instance=ExtResource("4_kvpfn")]
+position = Vector2(628, -93)
+
 [node name="Player" parent="." unique_id=1871107540 instance=ExtResource("1_uwrxv")]
-position = Vector2(38, 29)
+position = Vector2(40, 3)
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=1839454953]
 position = Vector2(-2, -6)
@@ -212,13 +250,13 @@ position_smoothing_enabled = true
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2028939090]
 texture_filter = 1
 position = Vector2(0, -15)
-tile_map_data = PackedByteArray("AAABAAIAAAAAAAAAAAACAAIAAAABAAAAAAABAAMAAAAAAAEAAAABAAQAAAAHAAcAAAAAAAQAAAAAAAAAAAACAAMAAAABAAEAAAACAAQAAAAHAAcAAAACAAUAAAAHAAcAAAABAAUAAAABAAEAAAAAAAUAAAAAAAEAAAACAAYAAAABAAIAAAABAAYAAAABAAIAAAADAAIAAAACAAAAAAADAAMAAAACAAEAAAADAAQAAAAHAAcAAAADAAUAAAABAAEAAAADAAYAAAABAAIAAAAAAAYAAAAAAAIAAAAEAAQAAAACAAAAAAAEAAUAAAACAAEAAAAEAAYAAAACAAIAAAABAAEAAAAFAAIAAAACAAEAAAAGAAIAAAADAAEAAAAHAAIAAAD+/wQAAAABAAEAAAD0////AAAAAAAAAAD1////AAABAAAAAAD2////AAACAAAAAAD2/wAAAAACAAIAAAD0/wAAAAAAAAIAAAD1/wAAAAABAAIAAAAFAPz/AAACAAIAADAGAPz/AAABAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAMAAAAHAP3/AAACAAAAAAAKAP3/AAACAAIAADALAP3/AAABAAIAADAMAP3/AAABAAAAAAANAP3/AAABAAAAAAAOAP3/AAABAAAAAAARAP3/AAABAAAAAAASAP3/AAABAAIAADATAP3/AAAAAAIAADATAP7/AAAAAAMAAAAFAPr/AAAFAAEAAAAFAPv/AAAAAAAAAAAGAPr/AAAGAAEAAAAGAPv/AAACAAAAAAAHAPv/AAAFAAEAAAAHAPz/AAABAAAAAAAIAPv/AAAGAAEAAAAIAPz/AAABAAAAAAAJAPv/AAAHAAEAAAAJAPz/AAABAAAAAAAKAPv/AAAFAAEAAAAKAPz/AAAAAAIAADALAPv/AAAGAAEAAAALAPz/AAABAAAAAAAMAPv/AAAFAAEAAAAMAPz/AAABAAAAAAANAPv/AAAGAAEAAAANAPz/AAABAAIAADAOAPv/AAAHAAEAAAAOAPz/AAAAAAIAADAPAP3/AAABAAAAAAAQAP3/AAABAAAAAAARAPv/AAAFAAEAAAARAPz/AAAAAAAAAAASAPv/AAAGAAEAAAASAPz/AAABAAAAAAATAPv/AAAHAAEAAAATAPz/AAACAAAAAAAGAP//AAAAAAMAAAATAP//AAAAAAMAAAD3/wQAAAAEAAAAAAD4/wQAAAAEAAAAAAAOAAQAAAADAAAAAAAOAAUAAAADAAAAAAAOAAYAAAADAAAAAAAXAAQAAAADAAAAAAAXAAUAAAADAAAAAAAXAAYAAAADAAAAAAAYAAQAAAABAAMAAAAZAAQAAAABAAMAAAAaAAQAAAABAAMAAAAbAAQAAAABAAMAAAAcAAQAAAABAAMAAAAfAP//AAABAAMAAAAgAP//AAABAAMAAAAhAP//AAABAAMAAAAiAP//AAABAAMAAAAjAP//AAABAAMAAAAdAAIAAAABAAMAAAAeAAEAAAABAAMAAAAeAAAAAAABAAMAAAAcAAMAAAABAAMAAAD2/wQAAAAEAAAAAAD5/wQAAAAEAAAAAFA=")
+tile_map_data = PackedByteArray("AAABAAIAAAAAAAAAAAACAAIAAAABAAAAAAABAAMAAAAAAAEAAAABAAQAAAAHAAcAAAAAAAQAAAAAAAAAAAACAAMAAAABAAEAAAACAAQAAAAHAAcAAAACAAUAAAAHAAcAAAABAAUAAAABAAEAAAAAAAUAAAAAAAEAAAACAAYAAAABAAIAAAABAAYAAAABAAIAAAADAAIAAAACAAAAAAADAAMAAAACAAEAAAADAAQAAAAHAAcAAAADAAUAAAABAAEAAAADAAYAAAABAAIAAAAAAAYAAAAAAAIAAAAEAAQAAAACAAAAAAAEAAUAAAACAAEAAAAEAAYAAAACAAIAAAABAAEAAAAFAAIAAAACAAEAAAAGAAIAAAADAAEAAAAHAAIAAAD+/wQAAAABAAEAAAD0////AAAAAAAAAAD1////AAABAAAAAAD2////AAACAAAAAAD2/wAAAAACAAIAAAD0/wAAAAAAAAIAAAD1/wAAAAABAAIAAAAFAPz/AAACAAIAADAGAPz/AAABAAAAAAAGAP3/AAAAAAAAAAAGAP7/AAAAAAMAAAAHAP3/AAACAAAAAAAKAP3/AAACAAIAADALAP3/AAABAAIAADAMAP3/AAABAAAAAAANAP3/AAABAAAAAAARAP3/AAABAAAAAAASAP3/AAABAAIAADATAP3/AAAAAAIAADATAP7/AAAAAAMAAAAFAPr/AAAFAAEAAAAFAPv/AAAAAAAAAAAGAPr/AAAGAAEAAAAGAPv/AAACAAAAAAAHAPv/AAAFAAEAAAAHAPz/AAABAAAAAAAIAPv/AAAGAAEAAAAIAPz/AAABAAAAAAAJAPv/AAAHAAEAAAAJAPz/AAABAAAAAAAKAPv/AAAFAAEAAAAKAPz/AAAAAAIAADALAPv/AAAGAAEAAAALAPz/AAABAAAAAAAMAPv/AAAFAAEAAAAMAPz/AAABAAAAAAANAPv/AAAGAAEAAAANAPz/AAABAAIAADAOAPv/AAAHAAEAAAAOAPz/AAAAAAIAADAQAP3/AAABAAAAAAARAPv/AAAFAAEAAAARAPz/AAAAAAAAAAASAPv/AAAGAAEAAAASAPz/AAABAAAAAAATAPv/AAAHAAEAAAATAPz/AAACAAAAAAAGAP//AAAAAAMAAAATAP//AAAAAAMAAAD3/wQAAAAEAAAAAAD4/wQAAAAEAAAAAAAOAAQAAAADAAAAAAAOAAUAAAADAAAAAAAOAAYAAAADAAAAAAAXAAQAAAADAAAAAAAXAAUAAAADAAAAAAAXAAYAAAADAAAAAAAYAAQAAAABAAMAAAAZAAQAAAABAAMAAAAaAAQAAAABAAMAAAAbAAQAAAABAAMAAAAcAAQAAAABAAMAAAAfAP//AAABAAMAAAAgAP//AAABAAMAAAAhAP//AAABAAMAAAAiAP//AAABAAMAAAAjAP//AAABAAMAAAAdAAIAAAABAAMAAAAeAAEAAAABAAMAAAAeAAAAAAABAAMAAAAcAAMAAAABAAMAAAD2/wQAAAAEAAAAAAD5/wQAAAAEAAAAAFAbAPn/AAAAAAAAAAAcAPn/AAABAAAAAAAdAPn/AAACAAAAAAALAAAAAAABAAIAADAQAAEAAAABAAIAADAPAP//AAABAAAAAAA=")
 tile_set = SubResource("TileSet_w2dex")
 
 [node name="platforms_still" type="Node" parent="." unique_id=749063044]
 
 [node name="AnimatableBody2D" parent="platforms_still" unique_id=437164526 instance=ExtResource("3_lnu2h")]
-position = Vector2(257, 32)
+position = Vector2(372, 31)
 rotation = 1.5707964
 scale = Vector2(2, 2)
 
@@ -241,6 +279,15 @@ position = Vector2(98, 55)
 scale = Vector2(2, 2)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform1" unique_id=1643398064]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_iywne")
+autoplay = &"move"
+
+[node name="platform3" parent="platforms_moving" unique_id=1454348835 instance=ExtResource("3_lnu2h")]
+position = Vector2(569, -68)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform3" unique_id=665449273]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_iywne")
 autoplay = &"move"
@@ -280,9 +327,19 @@ texture_filter = 1
 position = Vector2(471, 4)
 scale = Vector2(0.5, 0.5)
 
+[node name="coin6" parent="coins" unique_id=1899100620 instance=ExtResource("5_iywne")]
+texture_filter = 1
+position = Vector2(453, -188)
+scale = Vector2(0.5, 0.5)
+
 [node name="coin4" parent="coins" unique_id=286829939 instance=ExtResource("5_iywne")]
 texture_filter = 1
-position = Vector2(566, -52)
+position = Vector2(249, -51)
+scale = Vector2(0.5, 0.5)
+
+[node name="coin5" parent="coins" unique_id=1751379676 instance=ExtResource("5_iywne")]
+texture_filter = 1
+position = Vector2(382, 42)
 scale = Vector2(0.5, 0.5)
 
 [node name="Killzone" parent="." unique_id=888199142 instance=ExtResource("6_u5sy4")]
@@ -299,5 +356,28 @@ position = Vector2(458.00003, 29)
 scale = Vector2(1.5, 1.5)
 
 [node name="spike" parent="." unique_id=868289590 instance=ExtResource("12_dinhu")]
-position = Vector2(-72, 0)
+position = Vector2(-77, 0)
 rotation = 3.1415927
+
+[node name="spike2" parent="." unique_id=863577538 instance=ExtResource("12_dinhu")]
+position = Vector2(264, -73)
+rotation = 3.1415927
+
+[node name="Label" type="Label" parent="." unique_id=190333052]
+offset_left = -23.0
+offset_top = -46.0
+offset_right = 35.0
+offset_bottom = -23.0
+theme_override_fonts/font = ExtResource("10_vtaks")
+text = "Fire is bad ->"
+
+[node name="Label2" type="Label" parent="." unique_id=1276628103]
+offset_left = -191.0
+offset_top = 22.0
+offset_right = -74.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("10_vtaks")
+text = "Jump on it to jump higher!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1525003139]
+stream = ExtResource("13_kvuet")

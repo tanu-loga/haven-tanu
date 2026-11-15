@@ -1,6 +1,7 @@
 extends CharacterBody2D
  
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var camera_2d: Camera2D = $Camera2D
 
 const SPEED = 100.0
 const JUMP_VELOCITY = -280.0
@@ -42,7 +43,8 @@ func _physics_process(delta: float) -> void:
 			animated_sprite_2d.flip_h = false
 		if direction == -1.0:
 			animated_sprite_2d.flip_h = true
-
+	else:
+		print("rip")
 func bounce(force: float):
 	velocity.y = force
 	print("bounced")
