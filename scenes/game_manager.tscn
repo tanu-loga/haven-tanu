@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://8agme2ylrv7k"]
+
+[ext_resource type="Script" uid="uid://gsco8y0lx2cr" path="res://scripts/game_manager.gd" id="1_glms7"]
+[ext_resource type="FontFile" uid="uid://co4fkvj2856d" path="res://asse/Yolk 6.ttf" id="2_udu3i"]
+
+[node name="GameManager" type="Node" unique_id=1804910293]
+script = ExtResource("1_glms7")
+
+[node name="score_label" type="Label" parent="." unique_id=680712215]
+texture_filter = 1
+offset_left = -244.0
+offset_top = -70.0
+offset_right = 10.0
+offset_bottom = -47.0
+theme_override_fonts/font = ExtResource("2_udu3i")
+theme_override_font_sizes/font_size = 17
+text = "Need more coins to unlock exit"

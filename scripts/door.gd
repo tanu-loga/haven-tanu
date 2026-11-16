@@ -1,9 +1,10 @@
 extends Area2D
 
-var obj_score: int = 1
+var obj_score: int = 6
 
 var is_open: bool = false
-@onready var game_manager: Node = %GameManager
+@onready var game_manager: Node = $"../../GameManager"
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 

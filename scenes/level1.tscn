@@ -1,0 +1,358 @@
+[gd_scene format=4 uid="uid://dk5vgqbaxdtbv"]
+
+[ext_resource type="FontFile" uid="uid://co4fkvj2856d" path="res://asse/Yolk 6.ttf" id="2_dxn3v"]
+[ext_resource type="PackedScene" uid="uid://b5n2t7icwgylc" path="res://scenes/door.tscn" id="3_14jow"]
+[ext_resource type="PackedScene" uid="uid://8kxf22tylw3w" path="res://scenes/trampoline.tscn" id="4_mvsps"]
+[ext_resource type="Texture2D" uid="uid://n3knre1trp" path="res://asse/tileset/oubliette_tileset_transparent.png" id="6_3w4mx"]
+[ext_resource type="PackedScene" uid="uid://7nvr2qrr1job" path="res://scenes/platform.tscn" id="9_ai3nx"]
+[ext_resource type="PackedScene" uid="uid://bdqlwgqkd8l0b" path="res://scenes/torch.tscn" id="10_phfsf"]
+[ext_resource type="PackedScene" uid="uid://c7vpb586ry25s" path="res://scenes/coin.tscn" id="11_3oqy1"]
+[ext_resource type="PackedScene" uid="uid://wqoml1r81ra8" path="res://scenes/killzone.tscn" id="12_mq0oc"]
+[ext_resource type="PackedScene" uid="uid://ceyw256qkiimj" path="res://scenes/enemy.tscn" id="13_msy1c"]
+[ext_resource type="PackedScene" uid="uid://b5uqh7yxi5srk" path="res://scenes/spike.tscn" id="14_7dkav"]
+[ext_resource type="AudioStream" uid="uid://suuxgt7u0ld0" path="res://asse/dark-happy-world.ogg" id="15_4niyd"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+texture = ExtResource("6_3w4mx")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_w2dex"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+
+[sub_resource type="Animation" id="Animation_lnu2h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("platforms_moving/platform1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(98, 55)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("platforms_moving/platform2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(259, 55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("platforms_moving/platform3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(569, -68)]
+}
+
+[sub_resource type="Animation" id="Animation_lbhrr"]
+resource_name = "move"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("platforms_moving/platform1:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(98, 55), Vector2(207, 55)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("platforms_moving/platform2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(259, 55), Vector2(350, 55)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("platforms_moving/platform3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(569, -68), Vector2(569, -148)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_iywne"]
+_data = {
+&"RESET": SubResource("Animation_lnu2h"),
+&"move": SubResource("Animation_lbhrr")
+}
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1thd6"]
+distance = -162.0
+
+[node name="levelroot" type="Node2D" unique_id=1974500762]
+
+[node name="door" parent="." unique_id=1529346263 instance=ExtResource("3_14jow")]
+position = Vector2(-172, -42)
+collision_mask = 2
+
+[node name="win_screen" type="ColorRect" parent="door" unique_id=67514424]
+visible = false
+z_index = 2
+offset_left = -366.0
+offset_top = -200.0
+offset_right = 933.0
+offset_bottom = 331.0
+color = Color(0, 0, 0, 1)
+
+[node name="door_label" type="Label" parent="door" unique_id=578415042]
+visible = false
+z_index = 3
+offset_left = -150.0
+offset_top = -28.0
+offset_right = 144.0
+offset_bottom = 48.0
+theme_override_fonts/font = ExtResource("2_dxn3v")
+theme_override_font_sizes/font_size = 96
+text = "You won..."
+
+[node name="trampoline" parent="door" unique_id=820959931 instance=ExtResource("4_mvsps")]
+position = Vector2(33, 82)
+
+[node name="trampoline2" parent="door" unique_id=962286442 instance=ExtResource("4_mvsps")]
+position = Vector2(404, 81)
+
+[node name="trampoline3" parent="door" unique_id=38674851 instance=ExtResource("4_mvsps")]
+position = Vector2(611, 84)
+
+[node name="trampoline4" parent="door" unique_id=484598623 instance=ExtResource("4_mvsps")]
+position = Vector2(740, 4)
+
+[node name="trampoline5" parent="door" unique_id=872545777 instance=ExtResource("4_mvsps")]
+position = Vector2(628, -93)
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2028939090]
+z_index = -2
+texture_filter = 1
+position = Vector2(0, -15)
+tile_map_data = PackedByteArray("AAABAAEAAAAAAAAAAAABAAIAAAAAAAAAAAACAAEAAAAAAAAAAAACAAIAAAAAAAAAAAADAAEAAAAAAAAAAAADAAIAAAAAAAAAAAAEAAEAAAAAAAAAAAAEAAIAAAAAAAAAAAAFAAEAAAAAAAAAAAAFAAIAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_w2dex")
+
+[node name="platforms_still" type="Node" parent="." unique_id=749063044]
+
+[node name="AnimatableBody2D" parent="platforms_still" unique_id=437164526 instance=ExtResource("9_ai3nx")]
+position = Vector2(372, 31)
+rotation = 1.5707964
+scale = Vector2(2, 2)
+
+[node name="AnimatableBody2D3" parent="platforms_still" unique_id=1104271559 instance=ExtResource("9_ai3nx")]
+position = Vector2(40, -21)
+scale = Vector2(2, 2)
+
+[node name="AnimatableBody2D2" parent="platforms_still" unique_id=850143566 instance=ExtResource("9_ai3nx")]
+position = Vector2(-67, 11)
+scale = Vector2(2, 2)
+
+[node name="AnimatableBody2D4" parent="platforms_still" unique_id=620121589 instance=ExtResource("10_phfsf")]
+visible = false
+position = Vector2(76, 35)
+
+[node name="platforms_moving" type="Node" parent="." unique_id=1487411803]
+
+[node name="platform1" parent="platforms_moving" unique_id=1691854101 instance=ExtResource("9_ai3nx")]
+position = Vector2(98, 55)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform1" unique_id=1643398064]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_iywne")
+autoplay = &"move"
+
+[node name="platform3" parent="platforms_moving" unique_id=1454348835 instance=ExtResource("9_ai3nx")]
+position = Vector2(569, -68)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform3" unique_id=665449273]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_iywne")
+autoplay = &"move"
+
+[node name="platform2" parent="platforms_moving" unique_id=224116592 instance=ExtResource("9_ai3nx")]
+position = Vector2(259, 55)
+scale = Vector2(2, 2)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform2" unique_id=1016534251]
+root_node = NodePath("../../..")
+libraries/ = SubResource("AnimationLibrary_iywne")
+autoplay = &"move"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1482759249]
+z_index = -4096
+offset_left = -1613.0
+offset_top = -741.0
+offset_right = 1533.0
+offset_bottom = 907.0
+color = Color(0, 0, 0, 1)
+
+[node name="coins" type="Node" parent="." unique_id=208895927]
+
+[node name="coin" parent="coins" unique_id=1488491317 instance=ExtResource("11_3oqy1")]
+texture_filter = 1
+position = Vector2(-24, 43)
+scale = Vector2(0.5, 0.5)
+
+[node name="coin2" parent="coins" unique_id=686062846 instance=ExtResource("11_3oqy1")]
+texture_filter = 1
+position = Vector2(232, 34)
+scale = Vector2(0.5, 0.5)
+
+[node name="coin3" parent="coins" unique_id=1529128015 instance=ExtResource("11_3oqy1")]
+texture_filter = 1
+position = Vector2(471, 4)
+scale = Vector2(0.5, 0.5)
+
+[node name="coin6" parent="coins" unique_id=1899100620 instance=ExtResource("11_3oqy1")]
+texture_filter = 1
+position = Vector2(453, -188)
+scale = Vector2(0.5, 0.5)
+
+[node name="coin4" parent="coins" unique_id=286829939 instance=ExtResource("11_3oqy1")]
+texture_filter = 1
+position = Vector2(249, -51)
+scale = Vector2(0.5, 0.5)
+
+[node name="coin5" parent="coins" unique_id=1751379676 instance=ExtResource("11_3oqy1")]
+texture_filter = 1
+position = Vector2(382, 42)
+scale = Vector2(0.5, 0.5)
+
+[node name="Killzone" parent="." unique_id=888199142 instance=ExtResource("12_mq0oc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=424799972]
+shape = SubResource("WorldBoundaryShape2D_1thd6")
+
+[node name="enemy" parent="." unique_id=183139762 instance=ExtResource("13_msy1c")]
+position = Vector2(41, -40)
+scale = Vector2(2, 2)
+
+[node name="enemy2" parent="." unique_id=1529075748 instance=ExtResource("13_msy1c")]
+position = Vector2(458.00003, 29)
+scale = Vector2(1.5, 1.5)
+
+[node name="spike" parent="." unique_id=868289590 instance=ExtResource("14_7dkav")]
+position = Vector2(-77, 0)
+rotation = 3.1415927
+
+[node name="spike2" parent="." unique_id=863577538 instance=ExtResource("14_7dkav")]
+position = Vector2(264, -73)
+rotation = 3.1415927
+
+[node name="Label" type="Label" parent="." unique_id=190333052]
+offset_left = -23.0
+offset_top = -46.0
+offset_right = 35.0
+offset_bottom = -23.0
+theme_override_fonts/font = ExtResource("2_dxn3v")
+text = "Fire is bad ->"
+
+[node name="Label2" type="Label" parent="." unique_id=1276628103]
+offset_left = -191.0
+offset_top = 22.0
+offset_right = -74.0
+offset_bottom = 45.0
+theme_override_fonts/font = ExtResource("2_dxn3v")
+text = "Jump on it to jump higher!"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1525003139]
+stream = ExtResource("15_4niyd")

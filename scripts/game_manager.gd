@@ -1,6 +1,5 @@
 extends Node
 @onready var score_label: Label = $score_label
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../AudioStreamPlayer2D"
 
 var score = 0
 func add_point():
