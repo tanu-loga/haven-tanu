@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dk5vgqbaxdtbv"]
+[gd_scene format=4 uid="uid://dk5vgqbaxdtbv"]
 
 [ext_resource type="FontFile" uid="uid://co4fkvj2856d" path="res://asse/Yolk 6.ttf" id="2_dxn3v"]
 [ext_resource type="PackedScene" uid="uid://b5n2t7icwgylc" path="res://scenes/door.tscn" id="3_14jow"]
@@ -1136,7 +1136,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("platforms_moving/platform1:position")
+tracks/0/path = NodePath("moving_platform/platform1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1148,7 +1148,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("platforms_moving/platform2:position")
+tracks/1/path = NodePath("moving_platform/platform2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1160,7 +1160,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("platforms_moving/platform3:position")
+tracks/2/path = NodePath("moving_platform/platform3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1176,7 +1176,7 @@ loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("platforms_moving/platform1:position")
+tracks/0/path = NodePath("moving_platform/platform1:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -1188,7 +1188,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("platforms_moving/platform2:position")
+tracks/1/path = NodePath("moving_platform/platform2:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -1200,7 +1200,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("platforms_moving/platform3:position")
+tracks/2/path = NodePath("moving_platform/platform3:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -1245,85 +1245,101 @@ theme_override_fonts/font = ExtResource("2_dxn3v")
 theme_override_font_sizes/font_size = 96
 text = "You won..."
 
-[node name="trampoline" parent="door" unique_id=820959931 instance=ExtResource("4_mvsps")]
-position = Vector2(33, 82)
+[node name="trampoline_group" type="Node2D" parent="." unique_id=2061518055]
+visible = false
 
-[node name="trampoline2" parent="door" unique_id=962286442 instance=ExtResource("4_mvsps")]
-position = Vector2(404, 81)
+[node name="trampoline" parent="trampoline_group" unique_id=820959931 instance=ExtResource("4_mvsps")]
+position = Vector2(-139, 40)
 
-[node name="trampoline3" parent="door" unique_id=38674851 instance=ExtResource("4_mvsps")]
-position = Vector2(611, 84)
+[node name="trampoline2" parent="trampoline_group" unique_id=962286442 instance=ExtResource("4_mvsps")]
+position = Vector2(232, 39)
 
-[node name="trampoline4" parent="door" unique_id=484598623 instance=ExtResource("4_mvsps")]
-position = Vector2(740, 4)
+[node name="trampoline3" parent="trampoline_group" unique_id=38674851 instance=ExtResource("4_mvsps")]
+position = Vector2(439, 42)
 
-[node name="trampoline5" parent="door" unique_id=872545777 instance=ExtResource("4_mvsps")]
-position = Vector2(628, -93)
+[node name="trampoline4" parent="trampoline_group" unique_id=484598623 instance=ExtResource("4_mvsps")]
+position = Vector2(568, -38)
+
+[node name="trampoline5" parent="trampoline_group" unique_id=872545777 instance=ExtResource("4_mvsps")]
+position = Vector2(456, -135)
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=2028939090]
 z_index = -2
 texture_filter = 1
 position = Vector2(0, -15)
-tile_map_data = PackedByteArray(0, 0, 1, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 2, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 3, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0, 4, 0, 3, 0, 1, 0, 0, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAABAAMAAQAAAAAAAAACAAMAAQACAAAAAAADAAMAAQACAAAAAAAEAAMAAQACAAAAAAAFAAMAAQACAAAAAAAGAAMAAQADAAAAAAA=")
 tile_set = SubResource("TileSet_w2dex")
 
-[node name="platforms_still" type="Node" parent="." unique_id=749063044]
+[node name="one_way_collision" type="Node2D" parent="." unique_id=488112246]
+visible = false
 
-[node name="AnimatableBody2D" parent="platforms_still" unique_id=437164526 instance=ExtResource("9_ai3nx")]
+[node name="AnimatableBody2D" parent="one_way_collision" unique_id=437164526 instance=ExtResource("9_ai3nx")]
 position = Vector2(372, 31)
 rotation = 1.5707964
 scale = Vector2(2, 2)
 
-[node name="AnimatableBody2D3" parent="platforms_still" unique_id=1104271559 instance=ExtResource("9_ai3nx")]
+[node name="AnimatableBody2D3" parent="one_way_collision" unique_id=1104271559 instance=ExtResource("9_ai3nx")]
 position = Vector2(40, -21)
 scale = Vector2(2, 2)
 
-[node name="AnimatableBody2D2" parent="platforms_still" unique_id=850143566 instance=ExtResource("9_ai3nx")]
+[node name="AnimatableBody2D2" parent="one_way_collision" unique_id=850143566 instance=ExtResource("9_ai3nx")]
 position = Vector2(-67, 11)
 scale = Vector2(2, 2)
 
-[node name="AnimatableBody2D4" parent="platforms_still" unique_id=620121589 instance=ExtResource("10_phfsf")]
+[node name="AnimatableBody2D4" parent="one_way_collision" unique_id=620121589 instance=ExtResource("10_phfsf")]
 visible = false
 position = Vector2(76, 35)
 
-[node name="platforms_moving" type="Node" parent="." unique_id=1487411803]
+[node name="moving_platform" type="Node2D" parent="." unique_id=1208717296]
+visible = false
 
-[node name="platform1" parent="platforms_moving" unique_id=1691854101 instance=ExtResource("9_ai3nx")]
+[node name="platform1" parent="moving_platform" unique_id=1691854101 instance=ExtResource("9_ai3nx")]
 position = Vector2(98, 55)
 scale = Vector2(2, 2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform1" unique_id=1643398064]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moving_platform/platform1" unique_id=1643398064]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_iywne")
 autoplay = &"move"
 
-[node name="platform3" parent="platforms_moving" unique_id=1454348835 instance=ExtResource("9_ai3nx")]
+[node name="platform3" parent="moving_platform" unique_id=1454348835 instance=ExtResource("9_ai3nx")]
 position = Vector2(569, -68)
 scale = Vector2(2, 2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform3" unique_id=665449273]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moving_platform/platform3" unique_id=665449273]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_iywne")
 autoplay = &"move"
 
-[node name="platform2" parent="platforms_moving" unique_id=224116592 instance=ExtResource("9_ai3nx")]
+[node name="platform2" parent="moving_platform" unique_id=224116592 instance=ExtResource("9_ai3nx")]
 position = Vector2(259, 55)
 scale = Vector2(2, 2)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms_moving/platform2" unique_id=1016534251]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="moving_platform/platform2" unique_id=1016534251]
 root_node = NodePath("../../..")
 libraries/ = SubResource("AnimationLibrary_iywne")
 autoplay = &"move"
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1482759249]
+[node name="blue_rect" type="ColorRect" parent="." unique_id=1482759249]
 z_index = -4096
 offset_left = -1613.0
 offset_top = -741.0
 offset_right = 1533.0
 offset_bottom = 907.0
 color = Color(0.44084376, 0.7101336, 1, 1)
+metadata/_edit_lock_ = true
 
-[node name="coins" type="Node" parent="." unique_id=208895927]
+[node name="black_rect" type="ColorRect" parent="." unique_id=1919883955]
+visible = false
+z_index = -4096
+offset_left = -1613.0
+offset_top = -741.0
+offset_right = 1533.0
+offset_bottom = 907.0
+color = Color(0, 0, 0, 1)
+
+[node name="coins" type="Node2D" parent="." unique_id=889749352]
+visible = false
 
 [node name="coin" parent="coins" unique_id=1488491317 instance=ExtResource("11_3oqy1")]
 texture_filter = 1
@@ -1360,23 +1376,32 @@ scale = Vector2(0.5, 0.5)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killzone" unique_id=424799972]
 shape = SubResource("WorldBoundaryShape2D_1thd6")
 
-[node name="enemy" parent="." unique_id=183139762 instance=ExtResource("13_msy1c")]
+[node name="enemies" type="Node2D" parent="." unique_id=15413628]
+visible = false
+
+[node name="enemy" parent="enemies" unique_id=183139762 instance=ExtResource("13_msy1c")]
 position = Vector2(41, -40)
 scale = Vector2(2, 2)
 
-[node name="enemy2" parent="." unique_id=1529075748 instance=ExtResource("13_msy1c")]
+[node name="enemy2" parent="enemies" unique_id=1529075748 instance=ExtResource("13_msy1c")]
 position = Vector2(458.00003, 29)
 scale = Vector2(1.5, 1.5)
 
-[node name="spike" parent="." unique_id=868289590 instance=ExtResource("14_7dkav")]
+[node name="spikes" type="Node2D" parent="." unique_id=710797840]
+visible = false
+
+[node name="spike" parent="spikes" unique_id=868289590 instance=ExtResource("14_7dkav")]
 position = Vector2(-77, 0)
-rotation = 3.1415927
+rotation = -3.1415925
 
-[node name="spike2" parent="." unique_id=863577538 instance=ExtResource("14_7dkav")]
+[node name="spike2" parent="spikes" unique_id=863577538 instance=ExtResource("14_7dkav")]
 position = Vector2(264, -73)
-rotation = 3.1415927
+rotation = -3.1415925
 
-[node name="Label" type="Label" parent="." unique_id=190333052]
+[node name="labels" type="Node2D" parent="." unique_id=837874060]
+visible = false
+
+[node name="Label" type="Label" parent="labels" unique_id=190333052]
 offset_left = -23.0
 offset_top = -46.0
 offset_right = 35.0
@@ -1384,7 +1409,7 @@ offset_bottom = -23.0
 theme_override_fonts/font = ExtResource("2_dxn3v")
 text = "Fire is bad ->"
 
-[node name="Label2" type="Label" parent="." unique_id=1276628103]
+[node name="Label2" type="Label" parent="labels" unique_id=1276628103]
 offset_left = -191.0
 offset_top = 22.0
 offset_right = -74.0
@@ -1393,4 +1418,5 @@ theme_override_fonts/font = ExtResource("2_dxn3v")
 text = "Jump on it to jump higher!"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1525003139]
+visible = false
 stream = ExtResource("15_4niyd")
